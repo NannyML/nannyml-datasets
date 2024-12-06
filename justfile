@@ -11,7 +11,7 @@ bump version="patch":
     uv lock --upgrade-package nannyml-datasets
     git add .
     git commit -m "Bump version: {{old_version}} → {{new_version}}"
-    git tag {{new_version}}
+    git tag v{{new_version}}
 
 run:
     uv run python -m there_yet
