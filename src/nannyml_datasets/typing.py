@@ -4,10 +4,10 @@ import tempfile
 import time
 import pyarrow as pa
 import pyarrow.parquet as pq
-from typing import Iterable, List, Mapping, Optional
 import numpy.typing as npt
-
 import requests
+
+from typing import Iterable, List, Mapping, Optional
 
 
 class _Dataset:

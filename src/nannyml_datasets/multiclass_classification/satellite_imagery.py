@@ -1,11 +1,13 @@
 import os
 
-from nannyml_datasets.constants import GITHTUB_DATASETS_REPO
+from nannyml_datasets.constants import GITHUB_DATASETS_REPO
 from nannyml_datasets.typing import Dataset
 from nannyml_datasets.multiclass_classification.typing import _Dataset
 
 
-REMOTE_FILE_SOURCE = os.path.join(GITHTUB_DATASETS_REPO, "image_satellite_dataset")
+REMOTE_FILE_SOURCE = os.path.join(
+    GITHUB_DATASETS_REPO, "multiclass_classification", "satellite_imagery"
+)
 COLUMN_MAPPING = {
     "predictions_column_name": "y_pred",
     "predicted_probabilities_column_names": {
