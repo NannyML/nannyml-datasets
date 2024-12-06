@@ -1,11 +1,11 @@
 from typing import List, Optional
-from nannyml_datasets.typing import Dataset as BaseDataset
+from nannyml_datasets.typing import _Dataset as BaseDataset
 
 
 ClassLabel = str
 
 
-class Dataset(BaseDataset):
+class _Dataset(BaseDataset):
     def __init__(
         self,
         remote_file_name: str,
