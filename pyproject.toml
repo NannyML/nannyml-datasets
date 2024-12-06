@@ -23,6 +23,10 @@ dependencies = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build]
+include = ["README.md", "LICENSE", "pyproject.toml", "src"]
+packages = ["src/nannyml_datasets"]
+
 [dependency-groups]
 dev = [
     "bump2version>=1.0.1",
