@@ -40,3 +40,5 @@ env10/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+*.egg-info/
