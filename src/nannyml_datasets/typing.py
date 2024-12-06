@@ -94,11 +94,9 @@ class Dataset:
         self,
         reference_dataset: _Dataset,
         monitoring_dataset: _Dataset,
-        target_dataset: Optional[_Dataset] = None,
     ) -> None:
         self.reference_dataset = reference_dataset
         self.monitoring_dataset = monitoring_dataset
-        self.target_dataset = target_dataset
 
     @property
     def reference(self) -> _Dataset:
@@ -107,15 +105,6 @@ class Dataset:
     @property
     def monitoring(self) -> _Dataset:
         return self.monitoring_dataset
-
-    @property
-    def target(self) -> Optional[_Dataset]:
-        assert self.target_dataset is not None, "No target dataset provided"
-        return self.target_dataset
-
-    @property
-    def has_targets(self) -> bool:
-        return self.target is not None
 
 
 def download_source(

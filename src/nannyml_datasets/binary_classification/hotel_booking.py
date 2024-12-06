@@ -60,7 +60,6 @@ class HotelBookingDataset(Dataset):
                 remote_file_source=REMOTE_FILE_SOURCE,
                 **COLUMN_MAPPING,
             ),
-            target_dataset=None,
         )
 
 
