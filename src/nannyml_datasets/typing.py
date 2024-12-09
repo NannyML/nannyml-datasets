@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 import numpy.typing as npt
 import requests
 
-from typing import Iterable, List, Mapping, Optional
+from typing import Iterable, List, Optional, Tuple
 
 
 class _Dataset:
@@ -69,24 +69,26 @@ class _Dataset:
         return self.data[self.timestamps_column_name].to_numpy()
 
     @property
-    def categorical_features(self) -> Iterable[npt.NDArray]:
+    def categorical_features(self) -> Iterable[Tuple[str, npt.NDArray]]:
         return (
-            self.data[col].to_numpy() for col in self.categorical_feature_column_names
+            (col, self.data[col].to_numpy())
+            for col in self.categorical_feature_column_names
         )
 
     @property
-    def continuous_features(self) -> Iterable[npt.NDArray]:
+    def continuous_features(self) -> Iterable[Tuple[str, npt.NDArray]]:
         return (
-            self.data[col].to_numpy() for col in self.continuous_feature_column_names
+            (col, self.data[col].to_numpy())
+            for col in self.continuous_feature_column_names
         )
 
     @property
-    def features(self) -> Mapping[str, npt.NDArray]:
-        return {
-            col: self.data[col].to_numpy()
+    def features(self) -> Iterable[Tuple[str, npt.NDArray]]:
+        return (
+            (col, self.data[col].to_numpy())
             for col in self.categorical_feature_column_names
             + self.continuous_feature_column_names
-        }
+        )
 
 
 class Dataset:

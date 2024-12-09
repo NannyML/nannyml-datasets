@@ -14,9 +14,9 @@ Each `Dataset` has `reference` and `monitoring` properties. Each of these expose
 - `predicted_probabilities`: access the model's predicted probablilities. Only available for classification datasets. For binary classification datasets this will be a single 
 - `targets`: access the model targets as a `numpy.ndarray`
 - `timestamps`: access the model timestamps as a `numpy.ndarray`
-- `categorical_features`: access the model's categorical features as an `Iterable` of `numpy.ndarray`
-- `continuous_features`: access the model's continuous features as an `Iterable` of `numpy.ndarray`
-- `features`: access the model's features as an `Iterable` of `numpy.ndarray`
+- `categorical_features`: access the model's categorical features. Loop over tuples containing the column name and its values.
+- `continuous_features`: access the model's continuous features. Loop over tuples containing the column name and its values.
+- `features`: access the model's features. Loop over tuples containing the column name and its values.
 
 If any of these properties are not available, trying to access them will raise an `AssertionError`.
 
@@ -30,8 +30,8 @@ from nannyml_dataset.binary_classification import synthetic_car_loan  # Import t
 print(synthetic_car_loan.reference.timestamps)  # Access some reference property
 print(synthetic_car_loan.monitoring.timestamps)  # Access some monitoring property
 
-for col in synthetic_car_loan.reference.categorical_features:  # Loop over reference categorical features
-    print(col)  # You can do more useful stuff here, like setting up a univariate covariate shift monitor!
+for name, values in synthetic_car_loan.reference.categorical_features:  # Loop over reference categorical features
+    print(f"{name}\t\t{values}")  # You can do more useful stuff here, like setting up a univariate covariate shift monitor!
 
 ```
 
