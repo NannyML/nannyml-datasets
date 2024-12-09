@@ -39,7 +39,20 @@ for col in synthetic_car_loan.reference.categorical_features:  # Loop over refer
 
 ### Binary Classification
 
-
 | Dataset | Synthetic | Description |
 |---------|-----------|-------------|
 | synthetic_car_loan | yes | A synthetic dataset describing a model that predicts defaulting a loan for a car. |
+| hotel_booking | no | A dataset describing a model that predicts booking cancellation in a hotel context.
+
+### Multiclass classification
+
+| Dataset | Synthetic | Description |
+|---------|-----------|-------------|
+| synthetic_credit_card | yes | A synthetic dataset describing a model that predicts a class of credit card (upmarket, highstreet, prepaid).
+| satellite_imagery| no | A dataset describing a model that classifies an image tile as earth, water, desert, ...
+
+### Regression
+
+| Dataset | Synthetic | Description | 
+|---------|-----------|-------------|
+| synthetic_car_price| yes | A synthetic dataset describing a model that predicts the price of a second-hand car. |
